@@ -1,11 +1,9 @@
+import 'package:chat_app/cubit/signup_cubit.dart';
 import 'package:flutter/material.dart';
-import './services/auth.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SignUp extends StatelessWidget {
-  AuthMethods authMethods = new AuthMethods();
-  String email;
-  String password;
-
+  static const String id = 'signup';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,38 +11,38 @@ class SignUp extends StatelessWidget {
         title: Text("Sign up"),
       ),
       body: Center(
-        child: Container(
-          padding: EdgeInsets.all(25),
-          child: Column(
+          child: BlocBuilder<SignupCubit, SignupState>(
+        cubit: BlocProvider.of<SignupCubit>(context),
+        builder: (context, state) {
+          return Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               TextField(
-                decoration: InputDecoration(
-                  hintText: 'Please enter an email',
-                ),
-                onChanged: (val) {
-                  email = val;
-                },
-              ),
+                  decoration: InputDecoration(
+                    hintText: 'Please enter an email',
+                  ),
+                  onChanged: (value) {
+                    context.bloc<SignupCubit>().setEmail(value);
+                  }),
               TextField(
                   decoration: InputDecoration(
                     hintText: 'Please enter a password',
                   ),
                   obscureText: true,
-                  onChanged: (val) {
-                    password = val;
+                  onChanged: (value) {
+                    context.bloc<SignupCubit>().setPassword(value);
                   }),
               SizedBox(height: 10),
               RaisedButton(
                 onPressed: () {
-                  authMethods.signUpwithEmailAndPassword(email, password);
-                  // Navigate back to first route when tapped.
+                  context.bloc<SignupCubit>().signUp();
                 },
-                child: Text('Create user'),
-              ),
+                child: Text("Finish sign up"),
+              )
             ],
-          ),
-        ),
-      ),
+          );
+        },
+      )),
     );
   }
 }
