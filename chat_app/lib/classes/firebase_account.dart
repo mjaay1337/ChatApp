@@ -7,6 +7,9 @@ import 'package:flutter/src/widgets/framework.dart';
 
 class FirebaseAccount implements Account {
   FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+  String accountId;
+  FirebaseAccount();
+  FirebaseAccount.user(this.accountId);
 
   @override
   Future<AuthResult> login(String email, String password) {

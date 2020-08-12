@@ -1,11 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 
-import 'models/user.dart';
+import './firebase_account.dart';
 
 class AuthMethods {
   final FirebaseAuth _auth = FirebaseAuth.instance;
-  User _userFromFirebaseUser(FirebaseUser user) {
-    return user != null ? User(user.uid) : null;
+  FirebaseAccount _userFromFirebaseUser(FirebaseUser user) {
+    return user != null ? FirebaseAccount.user(user.uid) : null;
   }
 
   Future signUpwithEmailAndPassword(String email, String password) async {
