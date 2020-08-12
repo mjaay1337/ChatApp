@@ -2,7 +2,7 @@ import 'package:chat_app/cubit/signup_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class SignUp extends StatelessWidget {
+class SignUpScreen extends StatelessWidget {
   static const String id = 'signup';
   @override
   Widget build(BuildContext context) {
@@ -37,9 +37,12 @@ class SignUp extends StatelessWidget {
                 SizedBox(height: 15),
                 RaisedButton(
                   onPressed: () {
-                    context.bloc<SignupCubit>().signUp();
+                    context
+                        .bloc<SignupCubit>()
+                        .signUp()
+                        .then((value) => Navigator.pop(context));
                   },
-                  child: Text("Finish sign up"),
+                  child: Text("Sign up"),
                 )
               ],
             );

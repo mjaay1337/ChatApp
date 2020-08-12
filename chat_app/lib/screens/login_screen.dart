@@ -1,4 +1,5 @@
 import 'package:chat_app/cubit/login_cubit.dart';
+import 'package:chat_app/screens/sign_up_screen.dart';
 import 'package:chat_app/widgets/account_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -35,6 +36,10 @@ class LoginScreen extends StatelessWidget {
                   context.bloc<LoginCubit>().login();
                 },
                 child: Text("Login"),
+              ),
+              RaisedButton(
+                onPressed: () => Navigator.pushNamed(context, SignUpScreen.id),
+                child: Text("Sign up"),
               )
             ],
           );

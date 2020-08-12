@@ -1,7 +1,9 @@
 import 'package:chat_app/cubit/login_cubit.dart';
+import 'package:chat_app/cubit/signup_cubit.dart';
 import 'package:chat_app/screens/home_screen.dart';
 import 'package:chat_app/screens/landing_screen.dart';
 import 'package:chat_app/screens/login_screen.dart';
+import 'package:chat_app/screens/sign_up_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -13,10 +15,17 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => LoginCubit(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<LoginCubit>(
+          create: (context) => LoginCubit(),
+        ),
+        BlocProvider<SignupCubit>(
+          create: (context) => SignupCubit(),
+        )
+      ],
       child: MaterialApp(
-        title: 'Flutter Demo',
+        title: 'MyChatApp',
         theme: ThemeData(
           // This is the theme of your application.
           //
@@ -37,7 +46,8 @@ class MyApp extends StatelessWidget {
         routes: {
           LandingScreen.id: (context) => LandingScreen(),
           HomeScreen.id: (context) => HomeScreen(),
-          LoginScreen.id: (context) => LoginScreen()
+          LoginScreen.id: (context) => LoginScreen(),
+          SignUpScreen.id: (context) => SignUpScreen()
         },
       ),
     );

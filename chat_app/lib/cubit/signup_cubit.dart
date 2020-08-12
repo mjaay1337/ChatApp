@@ -1,12 +1,13 @@
 import 'package:bloc/bloc.dart';
-import 'package:chat_app/services/auth.dart';
+import 'package:chat_app/classes/firebase_account.dart';
+import 'package:chat_app/interfaces/account.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:meta/meta.dart';
 
 part 'signup_state.dart';
 
 class SignupCubit extends Cubit<SignupState> {
-  AuthMethods authMethods = new AuthMethods();
+  Account account = FirebaseAccount();
   SignupCubit() : super(SignupInitial("", ""));
 
   void setEmail(String email) {
@@ -23,7 +24,6 @@ class SignupCubit extends Cubit<SignupState> {
 
   Future<AuthResult> signUp() {
     SignupInitial signupInitial = state as SignupState;
-    return authMethods.signUpwithEmailAndPassword(
-        signupInitial.email, signupInitial.password);
+    return account.signUp(signupInitial.email, signupInitial.password);
   }
 }
