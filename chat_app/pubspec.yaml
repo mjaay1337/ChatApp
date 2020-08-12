@@ -40,11 +40,7 @@ dev_dependencies:
     sdk: flutter
   test:
   bloc_test:
-<<<<<<< HEAD
-=======
-  mockito:  
-  
->>>>>>> parent of fef4206... Merge remote-tracking branch 'origin/login' into mergeLoginAndRegister
+  mockito:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
