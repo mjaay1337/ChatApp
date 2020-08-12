@@ -10,39 +10,42 @@ class SignUp extends StatelessWidget {
       appBar: AppBar(
         title: Text("Sign up"),
       ),
-      body: Center(
-          child: BlocBuilder<SignupCubit, SignupState>(
-        cubit: BlocProvider.of<SignupCubit>(context),
-        builder: (context, state) {
-          return Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              TextField(
-                  decoration: InputDecoration(
-                    hintText: 'Please enter an email',
-                  ),
-                  onChanged: (value) {
-                    context.bloc<SignupCubit>().setEmail(value);
-                  }),
-              TextField(
-                  decoration: InputDecoration(
-                    hintText: 'Please enter a password',
-                  ),
-                  obscureText: true,
-                  onChanged: (value) {
-                    context.bloc<SignupCubit>().setPassword(value);
-                  }),
-              SizedBox(height: 10),
-              RaisedButton(
-                onPressed: () {
-                  context.bloc<SignupCubit>().signUp();
-                },
-                child: Text("Finish sign up"),
-              )
-            ],
-          );
-        },
-      )),
+      body: Container(
+        padding: EdgeInsets.all(30),
+        child: Center(
+            child: BlocBuilder<SignupCubit, SignupState>(
+          cubit: BlocProvider.of<SignupCubit>(context),
+          builder: (context, state) {
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                TextField(
+                    decoration: InputDecoration(
+                      hintText: 'Please enter an email',
+                    ),
+                    onChanged: (value) {
+                      context.bloc<SignupCubit>().setEmail(value);
+                    }),
+                TextField(
+                    decoration: InputDecoration(
+                      hintText: 'Please enter a password',
+                    ),
+                    obscureText: true,
+                    onChanged: (value) {
+                      context.bloc<SignupCubit>().setPassword(value);
+                    }),
+                SizedBox(height: 15),
+                RaisedButton(
+                  onPressed: () {
+                    context.bloc<SignupCubit>().signUp();
+                  },
+                  child: Text("Finish sign up"),
+                )
+              ],
+            );
+          },
+        )),
+      ),
     );
   }
 }
