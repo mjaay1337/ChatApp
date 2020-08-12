@@ -3,7 +3,7 @@ import 'package:test/test.dart';
 import 'package:chat_app/cubit/login_cubit.dart';
 import 'package:bloc_test/bloc_test.dart';
 
-class MockLogicCubit extends MockBloc<LoginInitial> implements LoginCubit {}
+//class MockLogicCubit extends MockBloc<LoginInitial> implements LoginCubit {}
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
