@@ -4,7 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class LandingScreen extends StatelessWidget {
-  static const String id = '/';
+  static const String id = 'landing';
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<FirebaseUser>(

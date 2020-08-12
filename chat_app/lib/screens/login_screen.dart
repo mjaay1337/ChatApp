@@ -1,4 +1,5 @@
 import 'package:chat_app/cubit/login_cubit.dart';
+import 'package:chat_app/cubit/signup_cubit.dart';
 import 'package:chat_app/widgets/account_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -12,10 +13,8 @@ class LoginScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text("Login"),
       ),
-      body: MaterialApp(
-        routes: {SignUp.id: (context) => SignUp()},
-        home: Center(
-            child: BlocBuilder<LoginCubit, LoginState>(
+      body: Center(
+        child: BlocBuilder<LoginCubit, LoginState>(
           cubit: BlocProvider.of<LoginCubit>(context),
           builder: (context, state) {
             return Column(
@@ -46,7 +45,7 @@ class LoginScreen extends StatelessWidget {
               ],
             );
           },
-        )),
+        ),
       ),
     );
   }

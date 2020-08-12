@@ -8,18 +8,15 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text("Home Page"),
-        ),
         body: Center(
-          child: RaisedButton(
-            child: Text(
-              "Log out",
-            ),
-            onPressed: () {
-              _account.logOut(context);
-            },
-          ),
-        ));
+      child: RaisedButton(
+        child: Text(
+          "Log out",
+        ),
+        onPressed: () {
+          _account.logOut(context);
+        },
+      ),
+    ));
   }
 }
