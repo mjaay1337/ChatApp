@@ -1,7 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:test/test.dart';
-import 'package:chat_app/cubit/login_cubit.dart';
-import 'package:bloc_test/bloc_test.dart';
+import 'package:chat_app/cubit/login/login_cubit.dart';
 
 //class MockLogicCubit extends MockBloc<LoginInitial> implements LoginCubit {}
 

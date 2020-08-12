@@ -1,8 +1,4 @@
-import 'package:chat_app/cubit/login_cubit.dart';
-import 'package:chat_app/cubit/signup_cubit.dart';
-import 'package:chat_app/screens/home_screen.dart';
-import 'package:chat_app/screens/landing_screen.dart';
-import 'package:chat_app/screens/login_screen.dart';
+import 'package:chat_app/cubit/register/signup_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

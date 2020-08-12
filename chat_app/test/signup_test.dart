@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/semantics.dart';
+
 import 'package:flutter_test/flutter_test.dart';
-import 'package:chat_app/cubit/signup_cubit.dart';
+import 'package:chat_app/cubit/register/signup_cubit.dart';
 import 'package:mockito/mockito.dart';
 
 class MocksignupCubit extends Mock implements SignupCubit {}
