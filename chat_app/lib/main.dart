@@ -1,3 +1,4 @@
+import 'package:chat_app/signup.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -110,8 +111,12 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          FirebaseAuth.instance.createUserWithEmailAndPassword(
-              email: "Olivererrr@meew.dk", password: "1234567");
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => SignUp(),
+            ),
+          );
         },
         tooltip: 'Increment',
         child: Icon(Icons.add),
