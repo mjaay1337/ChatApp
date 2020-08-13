@@ -1,10 +1,12 @@
 import 'package:chat_app/cubit/forgot_pass_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class ForgotPassScreen extends StatelessWidget {
   static const String id = 'forgot_pass';
   String email;
+  var emailSent;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
