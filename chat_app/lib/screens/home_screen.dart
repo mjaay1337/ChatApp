@@ -1,6 +1,7 @@
 import 'package:chat_app/classes/firebase_account.dart';
 import 'package:chat_app/interfaces/account.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -42,11 +43,24 @@ class HomeScreen extends StatelessWidget {
             case ConnectionState.waiting:
               return new Text("Loading...");
             default:
-              return ListView(
-                children:
-                    snapshot.data.documents.map((DocumentSnapshot document) {
-                  return _createListTile(document["id"], document['email']);
-                }).toList(),
+              return FutureBuilder(
+                future: _account.firebaseAuth.currentUser(),
+                builder: (context, firebaseAuthSnapshot) {
+                  if (firebaseAuthSnapshot.connectionState ==
+                      ConnectionState.done) {
+                    FirebaseUser user = firebaseAuthSnapshot.data;
+                    return ListView(
+                      children: snapshot.data.documents
+                          .where((element) => element['id'] != user.uid)
+                          .map((DocumentSnapshot document) {
+                        return _createListTile(
+                            document["id"], document['email']);
+                      }).toList(),
+                    );
+                  } else {
+                    return CircularProgressIndicator();
+                  }
+                },
               );
           }
         },
