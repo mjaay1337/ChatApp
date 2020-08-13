@@ -36,10 +36,6 @@ class LoginScreen extends StatelessWidget {
                   context.bloc<LoginCubit>().login();
                 },
                 child: Text("Login"),
-              ),
-              RaisedButton(
-                onPressed: () => Navigator.pushNamed(context, SignUpScreen.id),
-                child: Text("Sign up"),
               )
             ],
           );
