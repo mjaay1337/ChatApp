@@ -1,5 +1,6 @@
 import 'package:chat_app/cubit/login_cubit.dart';
 import 'package:chat_app/cubit/signup_cubit.dart';
+import 'package:chat_app/screens/chat_screen.dart';
 import 'package:chat_app/screens/home_screen.dart';
 import 'package:chat_app/screens/landing_screen.dart';
 import 'package:chat_app/screens/login_screen.dart';
@@ -47,7 +48,8 @@ class MyApp extends StatelessWidget {
           LandingScreen.id: (context) => LandingScreen(),
           HomeScreen.id: (context) => HomeScreen(),
           LoginScreen.id: (context) => LoginScreen(),
-          SignUpScreen.id: (context) => SignUpScreen()
+          SignUpScreen.id: (context) => SignUpScreen(),
+          ChatScreen.id: (context) => ChatScreen()
         },
       ),
     );

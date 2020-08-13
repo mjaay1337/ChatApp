@@ -1,5 +1,7 @@
 import 'package:chat_app/classes/firebase_account.dart';
+import 'package:chat_app/entities/chat_screen_arguments.dart';
 import 'package:chat_app/interfaces/account.dart';
+import 'package:chat_app/screens/chat_screen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +26,8 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               onPressed: () {
-                print(id);
+                Navigator.pushNamed(context, ChatScreen.id,
+                    arguments: ChatScreenArguments(id: id, email: title));
               },
             ),
           )
