@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import '../classes/firebase_account.dart';
 
 import '../interfaces/account.dart';
-
+import 'package:fluttertoast/fluttertoast.dart';
 part 'forgot_pass_state.dart';
 
 class ForgotPassCubit extends Cubit<ForgotPassState> {
@@ -20,6 +20,14 @@ class ForgotPassCubit extends Cubit<ForgotPassState> {
 
   Future<void> resetPass() {
     ForgotPassInitial forgotPassInitial = state as ForgotPassState;
-    return account.resetPass(forgotPassInitial.email);
+
+    return account.resetPass(forgotPassInitial.email).whenComplete(() =>
+        Fluttertoast.showToast(
+            msg: "Email has been sent!",
+            toastLength: Toast.LENGTH_SHORT,
+            gravity: ToastGravity.CENTER,
+            timeInSecForIosWeb: 1,
+            textColor: Colors.green[300],
+            fontSize: 20.0));
   }
 }
