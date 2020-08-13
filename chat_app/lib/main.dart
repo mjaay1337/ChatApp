@@ -6,6 +6,7 @@ import 'package:chat_app/screens/home_screen.dart';
 import 'package:chat_app/screens/landing_screen.dart';
 import 'package:chat_app/screens/login_screen.dart';
 import 'package:chat_app/screens/sign_up_screen.dart';
+import 'package:chat_app/screens/start_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -54,6 +55,7 @@ class MyApp extends StatelessWidget {
           LoginScreen.id: (context) => LoginScreen(),
           SignUpScreen.id: (context) => SignUpScreen(),
           ChatScreen.id: (context) => ChatScreen()
+          StartScreen.id: (context) => StartScreen()
         },
       ),
     );

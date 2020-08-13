@@ -1,5 +1,5 @@
 import 'package:chat_app/screens/home_screen.dart';
-import 'package:chat_app/screens/login_screen.dart';
+import 'package:chat_app/screens/start_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -13,7 +13,7 @@ class LandingScreen extends StatelessWidget {
         if (snapshot.hasData && snapshot.data.providerData.length == 1) {
           return HomeScreen();
         } else {
-          return LoginScreen();
+          return StartScreen();
         }
       },
     );
