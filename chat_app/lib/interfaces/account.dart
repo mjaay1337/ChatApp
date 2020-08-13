@@ -7,4 +7,5 @@ class Account {
   Future<AuthResult> signUp(String email, String password) {}
 
   void logOut(BuildContext context) {}
+  Future<void> resetPass(String email) {}
 }
