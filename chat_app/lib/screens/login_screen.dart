@@ -38,10 +38,6 @@ class LoginScreen extends StatelessWidget {
                       Navigator.popAndPushNamed(context, HomeScreen.id));
                 },
                 child: Text("Login"),
-              ),
-              RaisedButton(
-                onPressed: () => Navigator.pushNamed(context, SignUpScreen.id),
-                child: Text("Sign up"),
               )
             ],
           );
