@@ -4,6 +4,7 @@ import 'package:chat_app/screens/home_screen.dart';
 import 'package:chat_app/screens/landing_screen.dart';
 import 'package:chat_app/screens/login_screen.dart';
 import 'package:chat_app/screens/sign_up_screen.dart';
+import 'package:chat_app/screens/start_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -47,7 +48,8 @@ class MyApp extends StatelessWidget {
           LandingScreen.id: (context) => LandingScreen(),
           HomeScreen.id: (context) => HomeScreen(),
           LoginScreen.id: (context) => LoginScreen(),
-          SignUpScreen.id: (context) => SignUpScreen()
+          SignUpScreen.id: (context) => SignUpScreen(),
+          StartScreen.id: (context) => StartScreen()
         },
       ),
     );
