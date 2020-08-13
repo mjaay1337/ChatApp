@@ -26,4 +26,9 @@ class FirebaseAccount implements Account {
     return FirebaseAuth.fromApp(app)
         .createUserWithEmailAndPassword(email: email, password: password);
   }
+
+  @override
+  Future<void> resetPass(String email) async {
+    await firebaseAuth.sendPasswordResetEmail(email: email);
+  }
 }

@@ -1,5 +1,7 @@
+import 'package:chat_app/cubit/forgot_pass_cubit.dart';
 import 'package:chat_app/cubit/login_cubit.dart';
 import 'package:chat_app/cubit/signup_cubit.dart';
+import 'package:chat_app/screens/forgot_pass.dart';
 import 'package:chat_app/screens/home_screen.dart';
 import 'package:chat_app/screens/landing_screen.dart';
 import 'package:chat_app/screens/login_screen.dart';
@@ -22,6 +24,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider<SignupCubit>(
           create: (context) => SignupCubit(),
+        ),
+        BlocProvider<ForgotPassCubit>(
+          create: (context) => ForgotPassCubit(),
         )
       ],
       child: MaterialApp(
@@ -47,7 +52,8 @@ class MyApp extends StatelessWidget {
           LandingScreen.id: (context) => LandingScreen(),
           HomeScreen.id: (context) => HomeScreen(),
           LoginScreen.id: (context) => LoginScreen(),
-          SignUpScreen.id: (context) => SignUpScreen()
+          SignUpScreen.id: (context) => SignUpScreen(),
+          ForgotPassScreen.id: (context) => ForgotPassScreen()
         },
       ),
     );
