@@ -1,4 +1,5 @@
 import 'package:chat_app/cubit/login_cubit.dart';
+import 'package:chat_app/screens/home_screen.dart';
 import 'package:chat_app/screens/sign_up_screen.dart';
 import 'package:chat_app/widgets/account_text_field.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +34,8 @@ class LoginScreen extends StatelessWidget {
                   }),
               RaisedButton(
                 onPressed: () {
-                  context.bloc<LoginCubit>().login();
+                  context.bloc<LoginCubit>().login().then((value) =>
+                      Navigator.popAndPushNamed(context, HomeScreen.id));
                 },
                 child: Text("Login"),
               ),
