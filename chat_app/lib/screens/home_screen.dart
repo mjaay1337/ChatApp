@@ -11,7 +11,7 @@ class HomeScreen extends StatelessWidget {
   final Account _account = FirebaseAccount();
   @override
   Widget build(BuildContext context) {
-    Row _createListTile(String id, String title) {
+    Row _createListTile(String uId, String sId, String title) {
       return Row(
         children: [
           Container(
@@ -26,8 +26,26 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               onPressed: () {
-                Navigator.pushNamed(context, ChatScreen.id,
-                    arguments: ChatScreenArguments(id: id, email: title));
+                Firestore.instance
+                    .collection("chatrooms")
+                    .where("id", whereIn: ["$uId-$sId", "$sId-$uId"])
+                    .getDocuments()
+                    .then((value) {
+                      if (value.documents.length == 1) {
+                        Navigator.pushNamed(context, ChatScreen.id,
+                            arguments: ChatScreenArguments(
+                                uId: uId, sId: sId, email: title));
+                      } else {
+                        Firestore.instance
+                            .collection("chatrooms")
+                            .document()
+                            .setData({'id': "$uId-$sId", 'messages': []}).then(
+                                (value) => Navigator.pushNamed(
+                                    context, ChatScreen.id,
+                                    arguments: ChatScreenArguments(
+                                        uId: uId, sId: sId, email: title)));
+                      }
+                    });
               },
             ),
           )
@@ -44,7 +62,7 @@ class HomeScreen extends StatelessWidget {
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
           switch (snapshot.connectionState) {
             case ConnectionState.waiting:
-              return new Text("Loading...");
+              return CircularProgressIndicator();
             default:
               return FutureBuilder(
                 future: _account.firebaseAuth.currentUser(),
@@ -57,7 +75,7 @@ class HomeScreen extends StatelessWidget {
                           .where((element) => element['id'] != user.uid)
                           .map((DocumentSnapshot document) {
                         return _createListTile(
-                            document["id"], document['email']);
+                            user.uid, document["id"], document['email']);
                       }).toList(),
                     );
                   } else {

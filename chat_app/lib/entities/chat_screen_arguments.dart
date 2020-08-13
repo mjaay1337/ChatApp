@@ -1,6 +1,7 @@
 class ChatScreenArguments {
-  final String id;
+  final String uId;
+  final String sId;
   final String email;
 
-  ChatScreenArguments({this.id, this.email});
+  ChatScreenArguments({this.uId, this.sId, this.email});
 }
