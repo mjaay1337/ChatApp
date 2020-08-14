@@ -16,11 +16,15 @@ class StartScreen extends StatelessWidget {
           SizedBox(
             width: 250.0,
             child: TyperAnimatedTextKit(
-              speed: Duration(milliseconds: 2000),
+              speed: Duration(milliseconds: 400),
               text: [
                 "Just Chat",
               ],
-              textStyle: TextStyle(fontSize: 32.0, fontFamily: "Agne"),
+              textStyle: TextStyle(
+                  fontSize: 32.0,
+                  fontFamily: "Agne",
+                  color: Colors.white,
+                  decoration: TextDecoration.none),
               textAlign: TextAlign.center,
               alignment: AlignmentDirectional.topStart, // or Alignment.topLeft
             ),
@@ -30,7 +34,7 @@ class StartScreen extends StatelessWidget {
             onPressed: () {
               Navigator.pushNamed(context, LoginScreen.id);
             },
-            child: Text('Already have a login? Login!'),
+            child: Text('Login'),
           ),
           RaisedButton(
             color: Colors.white,
@@ -38,7 +42,7 @@ class StartScreen extends StatelessWidget {
               Navigator.pushNamed(context, SignUpScreen.id);
             },
             child: Text(
-              'Don\'t have a login? Sign up!',
+              'Sign up',
             ),
           ),
         ],
