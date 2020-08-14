@@ -14,37 +14,46 @@ class LoginScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text("Login"),
       ),
-      body: Center(
-          child: BlocBuilder<LoginCubit, LoginState>(
-        cubit: BlocProvider.of<LoginCubit>(context),
-        builder: (context, state) {
-          return Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              AccountTextField(
+      body: Container(
+        padding: EdgeInsets.all(30),
+        child: Center(
+            child: BlocBuilder<LoginCubit, LoginState>(
+          cubit: BlocProvider.of<LoginCubit>(context),
+          builder: (context, state) {
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                AccountTextField(
                   obscureText: false,
                   labelText: 'Email',
                   onChanged: (value) {
                     context.bloc<LoginCubit>().changeEmail(value);
-                  }),
-              AccountTextField(
-                  obscureText: true,
-                  labelText: 'Password',
-                  onChanged: (value) {
-                    context.bloc<LoginCubit>().changePassword(value);
-                  }),
-              RaisedButton(
-                onPressed: () {
-                  context.bloc<LoginCubit>().login().then((value) =>
-                      Navigator.pushNamedAndRemoveUntil(
-                          context, HomeScreen.id, (_) => false));
-                },
-                child: Text("Login"),
-              )
-            ],
-          );
-        },
-      )),
+                  },
+                  textInputType: TextInputType.emailAddress,
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                AccountTextField(
+                    obscureText: true,
+                    labelText: 'Password',
+                    onChanged: (value) {
+                      context.bloc<LoginCubit>().changePassword(value);
+                    }),
+                SizedBox(height: 15),
+                RaisedButton(
+                  onPressed: () {
+                    context.bloc<LoginCubit>().login().then((value) =>
+                        Navigator.pushNamedAndRemoveUntil(
+                            context, HomeScreen.id, (_) => false));
+                  },
+                  child: Text("Login"),
+                )
+              ],
+            );
+          },
+        )),
+      ),
     );
   }
 }

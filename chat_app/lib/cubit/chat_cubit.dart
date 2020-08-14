@@ -7,8 +7,11 @@ import 'package:equatable/equatable.dart';
 class ChatCubit extends Cubit<String> {
   void changeText(String message) => emit(message);
 
-  void pushMessage(String documentId, String uId) {
-    Firestore.instance.collection("chatrooms").document(documentId).updateData({
+  Future<void> pushMessage(String documentId, String uId) {
+    return Firestore.instance
+        .collection("chatrooms")
+        .document(documentId)
+        .updateData({
       'messages': FieldValue.arrayUnion([
         {'id': uId, 'text': state}
       ])

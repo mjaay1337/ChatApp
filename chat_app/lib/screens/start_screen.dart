@@ -15,6 +15,7 @@ class StartScreen extends StatelessWidget {
         children: [
           SizedBox(
             width: 250.0,
+            height: 80,
             child: TyperAnimatedTextKit(
               speed: Duration(milliseconds: 400),
               text: [
@@ -35,6 +36,9 @@ class StartScreen extends StatelessWidget {
               Navigator.pushNamed(context, LoginScreen.id);
             },
             child: Text('Login'),
+          ),
+          SizedBox(
+            height: 10,
           ),
           RaisedButton(
             color: Colors.white,

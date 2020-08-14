@@ -15,14 +15,19 @@ class HomeScreen extends StatelessWidget {
       return Row(
         children: [
           Container(
-              margin: EdgeInsets.only(left: 12), child: Icon(Icons.person_pin)),
+              margin: EdgeInsets.only(left: 12),
+              child: Icon(
+                Icons.person_pin,
+                size: 32,
+                color: Colors.white,
+              )),
           Expanded(
             child: FlatButton(
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
                   title,
-                  style: TextStyle(fontSize: 16.0),
+                  style: TextStyle(fontSize: 18.0, color: Colors.grey[200]),
                 ),
               ),
               onPressed: () {
@@ -55,7 +60,7 @@ class HomeScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Home Page"),
+        title: Text("Friends"),
       ),
       body: StreamBuilder<QuerySnapshot>(
         stream: Firestore.instance.collection("users").snapshots(),

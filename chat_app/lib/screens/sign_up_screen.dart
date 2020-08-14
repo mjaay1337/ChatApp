@@ -20,12 +20,17 @@ class SignUpScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 TextField(
-                    decoration: InputDecoration(
-                      hintText: 'Please enter an email',
-                    ),
-                    onChanged: (value) {
-                      context.bloc<SignupCubit>().setEmail(value);
-                    }),
+                  decoration: InputDecoration(
+                    hintText: 'Please enter an email',
+                  ),
+                  onChanged: (value) {
+                    context.bloc<SignupCubit>().setEmail(value);
+                  },
+                  keyboardType: TextInputType.emailAddress,
+                ),
+                SizedBox(
+                  height: 10,
+                ),
                 TextField(
                     decoration: InputDecoration(
                       hintText: 'Please enter a password',

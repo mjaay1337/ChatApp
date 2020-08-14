@@ -33,6 +33,17 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'MyChatApp',
         theme: ThemeData(
+          scaffoldBackgroundColor: Colors.blue[600],
+          buttonTheme: ButtonThemeData(
+              minWidth: 150,
+              height: 40,
+              buttonColor: Colors.white,
+              splashColor: Colors.blue,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15))),
+          inputDecorationTheme:
+              InputDecorationTheme(fillColor: Colors.white, filled: true),
+          appBarTheme: AppBarTheme(centerTitle: true, color: Colors.blue),
           // This is the theme of your application.
           //
           // Try running your application with "flutter run". You'll see the

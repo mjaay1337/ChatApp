@@ -4,20 +4,19 @@ class AccountTextField extends StatelessWidget {
   final bool obscureText;
   final String labelText;
   final Function(String) onChanged;
+  TextInputType textInputType = TextInputType.multiline;
 
-  AccountTextField({this.obscureText, this.labelText, this.onChanged});
+  AccountTextField(
+      {this.obscureText, this.labelText, this.onChanged, this.textInputType});
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(4.0),
-      child: TextField(
-          obscureText: obscureText,
-          decoration: InputDecoration(
-            border: OutlineInputBorder(),
-            labelText: labelText,
-          ),
-          onChanged: onChanged),
-    );
+    return TextField(
+        obscureText: obscureText,
+        decoration: InputDecoration(
+          hintText: labelText,
+        ),
+        keyboardType: textInputType,
+        onChanged: onChanged);
   }
 }
