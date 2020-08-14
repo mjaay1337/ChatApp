@@ -25,9 +25,10 @@ class ForgotPassCubit extends Cubit<ForgotPassState> {
         Fluttertoast.showToast(
             msg: "Email has been sent!",
             toastLength: Toast.LENGTH_SHORT,
-            gravity: ToastGravity.CENTER,
+            gravity: ToastGravity.TOP,
             timeInSecForIosWeb: 1,
-            textColor: Colors.green[300],
+            backgroundColor: Colors.white,
+            textColor: Colors.green[400],
             fontSize: 20.0));
   }
 }

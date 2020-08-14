@@ -22,16 +22,21 @@ class ForgotPassScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   TextField(
-                      decoration: InputDecoration(
-                        hintText: 'Please enter your email',
-                      ),
-                      onChanged: (value) {
-                        context.bloc<ForgotPassCubit>().setEmail(value);
-                      }),
+                    decoration: InputDecoration(
+                      hintText: 'Please enter your email',
+                    ),
+                    onChanged: (value) {
+                      context.bloc<ForgotPassCubit>().setEmail(value);
+                    },
+                    keyboardType: TextInputType.emailAddress,
+                  ),
                   SizedBox(height: 15),
                   RaisedButton(
                     onPressed: () {
-                      context.bloc<ForgotPassCubit>().resetPass();
+                      context
+                          .bloc<ForgotPassCubit>()
+                          .resetPass()
+                          .then((value) => Navigator.pop(context));
                     },
                     child: Text('Reset password'),
                   ),

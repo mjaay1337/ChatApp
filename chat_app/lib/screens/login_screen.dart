@@ -1,4 +1,5 @@
 import 'package:chat_app/cubit/login_cubit.dart';
+import 'package:chat_app/screens/forgot_pass.dart';
 import 'package:chat_app/screens/home_screen.dart';
 import 'package:chat_app/screens/sign_up_screen.dart';
 import 'package:chat_app/screens/start_screen.dart';
@@ -40,6 +41,22 @@ class LoginScreen extends StatelessWidget {
                     onChanged: (value) {
                       context.bloc<LoginCubit>().changePassword(value);
                     }),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    FlatButton(
+                      onPressed: () =>
+                          Navigator.pushNamed(context, ForgotPassScreen.id),
+                      child: Text(
+                        "Forgot password?",
+                        style: TextStyle(
+                          color: Colors.white,
+                          decoration: TextDecoration.underline,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
                 SizedBox(height: 15),
                 RaisedButton(
                   onPressed: () {
@@ -48,7 +65,7 @@ class LoginScreen extends StatelessWidget {
                             context, HomeScreen.id, (_) => false));
                   },
                   child: Text("Login"),
-                )
+                ),
               ],
             );
           },
